@@ -39,7 +39,7 @@ fn start() {
             default = Some(
                 cfg["path"].clone().into_string().expect("No path in some cfg")
             );
-        } else {
+        } else if(!cfg["time"][0][weekday.as_str()].is_badvalue()){
             let begin = NaiveTime::parse_from_str(
                 cfg["time"][0][weekday.as_str()][0]
                     .clone()
